@@ -26,8 +26,8 @@ const DataTablePayment: React.FC<DataTablePaymentProps> = ({ row }) => {
   
     return (
       <div className='flex items-center'>
-        <p className='mr-2'>{paymentInfo.label}</p>
-        <div className='w-[80px] truncate'>{paymentInfo.icon}</div>
+        <p className='mr-2'>{paymentInfo?.label}</p>
+        <div className='w-[80px] truncate'>{paymentInfo?.icon}</div>
       </div>
     );
   };

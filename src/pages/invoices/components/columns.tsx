@@ -1,14 +1,13 @@
 import { ColumnDef } from '@tanstack/react-table'
 
 import { Checkbox } from '@/components/ui/checkbox'
-import { DataTableColumnHeader } from './data-table-column-header'
-
-import { TransactionSchema } from '../data/schema'
-import DataTableRowTransaction from './data-table-row-transaction'
-import DataTablePayment from './data-table-payment'
+import { invoiceSchema } from '@/pages/transactions/data/schema'
+import { DataTableColumnHeader } from '@/pages/transactions/components/data-table-column-header'
+import DataTableInvoice from './data-table-invoice'
+import { formattedDate } from '@/lib/utils'
 import DataTableStatus from './data-table-status'
 
-export const columns: ColumnDef<TransactionSchema>[] = [
+export const columns: ColumnDef<invoiceSchema>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -34,54 +33,53 @@ export const columns: ColumnDef<TransactionSchema>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'transaction_id',
+    accessorKey: 'invoice_id',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Transaction Id' />
+      <DataTableColumnHeader column={column} title='Invoice Id' />
     ),
-    cell: ({ row }) => <DataTableRowTransaction row={row.original} />,
+    cell: ({ row }) => <DataTableInvoice row={row.original} />,    enableSorting: false,
+    enableHiding: false,
+},
+{
+    accessorKey: 'customer_name',
+    header: ({ column }) => (
+        <DataTableColumnHeader column={column} title='Name' />
+    ),
+    cell: ({ row }) => <div className='w-[200px] truncate'>{row.getValue('customer_name')}</div>,
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: 'user_name',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='User' />
-    ),
-    cell: ({ row }) => <div className='w-[200px] truncate'>{row.getValue('user_name')}</div>,
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
+},
+{
     accessorKey: 'amount',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Amount' />
+        <DataTableColumnHeader column={column} title='Amount' />
     ),
     cell: ({ row }) => <div className='w-[80px]'>{row.getValue('amount')}</div>, 
-  },
-  {
+},
+{
     accessorKey: 'currency',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Currency' />
+        <DataTableColumnHeader column={column} title='Currency' />
     ),
     cell: ({ row }) => <div className='w-[80px]'>{row.getValue('currency')}</div>,
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: 'status',
+},
+{
+    accessorKey: 'due_date',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Status' />
+        <DataTableColumnHeader column={column} title='Due' />
     ),
-    cell: ({ row }) => <DataTableStatus row={row.original} />,
+    cell: ({ row }) => <div className='w-[200px] truncate'>{formattedDate(row.getValue('due_date'))}</div>,
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: 'payment',
+},
+{
+    accessorKey: 'status',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Payment' />
+        <DataTableColumnHeader column={column} title='Status' />
     ),
-    cell: ({ row }) => <DataTablePayment row={row.original} />,
+    cell: ({ row }) => <DataTableStatus row={row.original} />,  
     enableSorting: false,
     enableHiding: false,
   },

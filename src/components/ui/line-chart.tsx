@@ -5,31 +5,27 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+import { generateRevenue, generateTransactions } from "@/lib/utils"
 
-const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
-]
+const transactionData = generateTransactions(2);
+const revenueData = generateRevenue(2);
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "hsl(var(--chart-1))",
+  amount: {
+    label: "Amount",
   },
 } satisfies ChartConfig
 
-export function LineGraph() {
+export function LineGraph({ render }: { render: string }): JSX.Element {
+  const data = render === 'revenue' ? revenueData : transactionData;
+
   return (
 
       <ResponsiveContainer width='100%' height={350}>
         <ChartContainer config={chartConfig}>
           <LineChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             margin={{
               left: 12,
               right: 12,
@@ -52,10 +48,23 @@ export function LineGraph() {
         />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel />}
+              content={
+                <ChartTooltipContent
+                  className="w-[200px]"
+                  nameKey="amount"
+                  labelFormatter={(value) => {
+                    return new Date(value).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })
+                  }}
+                />
+              }
+
             />
             <Line
-              dataKey="desktop"
+              dataKey="amount"
               type="natural"
               stroke="blue"
               strokeWidth={2}

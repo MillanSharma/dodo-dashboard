@@ -26,19 +26,27 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-import { DataTablePagination } from '../components/data-table-pagination'
-import {  TransactionsResponse } from '../data/schema';
-import { fetchTransactions } from '@/lib/utils';
+import { fetchInvoices, fetchTransactions } from '@/lib/utils';
+import { DataTablePagination } from '@/pages/transactions/components/data-table-pagination';
+import { InvoiceResponse } from '@/pages/transactions/data/schema';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
-  search: string,
+  data: TData[];
+  pagination: {
+    pageIndex: number;
+    pageSize: number;
+  };
+  setPagination: React.Dispatch<React.SetStateAction<{
+    pageIndex: number;
+    pageSize: number;
+  }>>;
+  loading: boolean,
 }
 
 
 export function DataTable<TData, TValue>({
   columns,
-  search,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
@@ -48,14 +56,14 @@ export function DataTable<TData, TValue>({
   )
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [pagination, setPagination] = React.useState<PaginationState>({
-    pageIndex: 0,
+    pageIndex: 1,
     pageSize: 10,
   })
 
     const fetchData = async () => {
       try {
 
-        const response: TransactionsResponse = await fetchTransactions(pagination, search);
+        const response: InvoiceResponse = await fetchInvoices(pagination);
         return response;
       } catch (error) {
 
@@ -65,13 +73,12 @@ export function DataTable<TData, TValue>({
     }
   
   const dataQuery = useQuery({
-    queryKey: ['data', pagination, search],
+    queryKey: ['data', pagination],
     queryFn: () => fetchData(),
     placeholderData: keepPreviousData,
   })
 
   const defaultData = React.useMemo(() => [], [])
-  console.log('data ', dataQuery?.data?.rows)
 
   const table = useReactTable({
     data: dataQuery?.data?.rows || defaultData,

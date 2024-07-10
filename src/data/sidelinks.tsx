@@ -43,9 +43,9 @@ export const sidelinks: SideLink[] = [
     icon: <IconFileInvoice size={18} />,
   },
   {
-    title: 'Customers',
+    title: 'Interactions',
     label: '',
-    href: '/dashboard/customers',
+    href: '/dashboard/interactions',
     icon: <IconUsers size={18} />,
   },
   {

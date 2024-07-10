@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      filter: {
+        sepia: 'sepia(var(--tw-sepia))',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const taskSchema = z.object({
+export const transactionSchema = z.object({
   transaction_id: z.string(),
   user_name: z.string(),
   amount: z.string(),
@@ -9,7 +9,17 @@ export const taskSchema = z.object({
   status: z.string(), 
 })
 
-export type Task = z.infer<typeof taskSchema>
+export type TransactionSchema = z.infer<typeof transactionSchema>
+
+export const invoiceSchema = z.object({
+  invoice_id: z.string(),
+  user_name: z.string(),
+  amount: z.string(),
+  currency: z.string(),
+  due_date: z.date(),
+})
+
+export type invoiceSchema = z.infer<typeof invoiceSchema>
 
 interface Transaction {
   _id: string;
@@ -21,10 +31,26 @@ interface Transaction {
   payment: string;
 }
 
+interface Invoices {
+  _id: string;
+  invoice_id: string;
+  customer_name: string,
+  customer_email: string;
+  due_date: string;
+  amount: number;
+  currency: string,
+}
+
 interface TransactionsResponse {
   pageCount: number;
   rowCount: number;
   rows: Transaction[];
+}
+
+interface InvoiceResponse {
+  pageCount: number;
+  rowCount: number;
+  rows: Invoices[];
 }
 
 type PaymentStatus = 'pending' | 'failed' | 'completed';
@@ -41,4 +67,9 @@ interface DataTableStatusProps {
     };
 }
 
-export type { Transaction, TransactionsResponse, DataTableStatusProps }
+export type { 
+  Transaction, 
+  TransactionsResponse, 
+  DataTableStatusProps,
+  InvoiceResponse,
+}

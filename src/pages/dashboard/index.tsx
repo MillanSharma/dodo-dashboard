@@ -70,7 +70,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent className='pl-2'>
               {/* <Overview /> */}
-              <LineGraph />
+              <LineGraph render='revenue' />
             </CardContent>
           </Card>
           <Card className='md: col-span-1 lg:col-span-4'>
@@ -79,7 +79,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent className='pl-2'>
               {/* <Overview /> */}
-              <LineGraph />
+              <LineGraph render='transaction' />
             </CardContent>
           </Card>
           {/* <Card className='col-span-1 lg:col-span-3'>
