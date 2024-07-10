@@ -18,7 +18,7 @@ export async function fetchTransactions(
 ): Promise<InvoiceResponse> {
   const { pageSize, pageIndex } = pagination
   const response = await fetch(
-    `http://localhost:3000/transactions?page=${pageIndex}&limit=${pageSize}&search=${search}`
+    `${process.env.API_BASE_URL}/transactions?page=${pageIndex}&limit=${pageSize}&search=${search}`
   )
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`)
@@ -37,7 +37,7 @@ export async function fetchInvoices(
 ): Promise<InvoiceResponse> {
   const { pageSize, pageIndex } = pagination
   const response = await fetch(
-    `http://localhost:3000/invoices?page=${pageIndex}&limit=${pageSize}&search=${search}`
+    `${process.env.API_BASE_URL}/invoices?page=${pageIndex}&limit=${pageSize}&search=${search}`
   )
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`)
