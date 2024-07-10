@@ -1,15 +1,10 @@
 import { Layout } from '@/components/custom/layout'
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Search } from '@/components/search'
 import ThemeSwitch from '@/components/theme-switch'
 import { TopNav } from '@/components/top-nav'
 import { UserNav } from '@/components/user-nav'
-import CardComponent from './components/card-component';
+import CardComponent from './components/card-component'
 import { LineGraph } from '@/components/ui/line-chart'
 
 const slugData = [
@@ -36,7 +31,7 @@ const slugData = [
     quantity: '1K',
     trendUp: '+6.08%',
     trending: true,
-  }
+  },
 ]
 
 export default function Dashboard() {
@@ -57,36 +52,37 @@ export default function Dashboard() {
         <div className='mb-2 flex items-center justify-between space-y-2'>
           <h1 className='text-2xl font-bold tracking-tight'>Dashboard</h1>
         </div>
-            <div className='mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-            {slugData.map((item) => (
-              <CardComponent 
+        <div className='mb-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+          {slugData.map((item) => (
+            <CardComponent
+              key={item.title}
               title={item.title}
               quantity={item.quantity}
               trendUp={item.trendUp}
               trending={item.trending}
-              />
-            ))}
-            </div>
-            <div className='grid grid-cols-1 gap-4 lg:grid-cols-8'>
-              <Card className='col-span-1 lg:col-span-4'>
-                <CardHeader>
-                  <CardTitle>Revenue</CardTitle>
-                </CardHeader>
-                <CardContent className='pl-2'>
-                  {/* <Overview /> */}
-                  <LineGraph />
-                </CardContent>
-              </Card>
-              <Card className='col-span-1 md: lg:col-span-4'>
-                <CardHeader>
-                  <CardTitle>Transaction</CardTitle>
-                </CardHeader>
-                <CardContent className='pl-2'>
-                  {/* <Overview /> */}
-                  <LineGraph />
-                </CardContent>
-              </Card>
-              {/* <Card className='col-span-1 lg:col-span-3'>
+            />
+          ))}
+        </div>
+        <div className='grid grid-cols-1 gap-4 lg:grid-cols-8'>
+          <Card className='col-span-1 lg:col-span-4'>
+            <CardHeader>
+              <CardTitle>Revenue</CardTitle>
+            </CardHeader>
+            <CardContent className='pl-2'>
+              {/* <Overview /> */}
+              <LineGraph />
+            </CardContent>
+          </Card>
+          <Card className='md: col-span-1 lg:col-span-4'>
+            <CardHeader>
+              <CardTitle>Transaction</CardTitle>
+            </CardHeader>
+            <CardContent className='pl-2'>
+              {/* <Overview /> */}
+              <LineGraph />
+            </CardContent>
+          </Card>
+          {/* <Card className='col-span-1 lg:col-span-3'>
                 <CardHeader>
                   <CardTitle>Recent Sales</CardTitle>
                   <CardDescription>
@@ -97,7 +93,7 @@ export default function Dashboard() {
                   <RecentSales />
                 </CardContent>
               </Card> */}
-            </div>
+        </div>
       </Layout.Body>
     </Layout>
   )
@@ -108,11 +104,6 @@ const topNav = [
     title: 'Overview',
     href: '',
     isActive: true,
-  },
-  {
-    title: 'Products',
-    href: 'products',
-    isActive: false,
   },
   {
     title: 'Settings',

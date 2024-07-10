@@ -4,11 +4,19 @@ export default function useCheckActiveNav() {
   const { pathname } = useLocation()
 
   const checkActiveNav = (nav: string) => {
+    if (nav === '/') {
+      return pathname === '/'
+    }
+
     const pathArray = pathname.split('/').filter((item) => item !== '')
+    const navArray = nav.split('/').filter((item) => item !== '')
 
-    if (nav === '/' && pathArray.length < 1) return true
+    if (navArray.length > pathArray.length) {
+      return false
+    }
 
-    return pathArray.includes(nav.replace(/^\//, ''))
+    return navArray.every((navPart, index) => navPart === pathArray[index]) && 
+           (navArray.length === pathArray.length || pathArray[navArray.length] === undefined)
   }
 
   return { checkActiveNav }

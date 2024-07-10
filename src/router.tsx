@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       return { Component: AppShell.default }
     },
     errorElement: <GeneralError />,
-    children: [
+      children: [
       {
         index: true,
         lazy: async () => ({
@@ -55,41 +55,41 @@ const router = createBrowserRouter([
       {
         path: 'transactions',
         lazy: async () => ({
-          Component: (await import('@/pages/transactions')).default,
+          Component: (await import('./pages/transactions')).default,
         }),
       },
       {
         path: 'invoices',
         lazy: async () => ({
-          Component: (await import('@/components/coming-soon')).default,
+          Component: (await import('./components/coming-soon')).default,
         }),
       },
       {
         path: 'customers',
         lazy: async () => ({
-          Component: (await import('@/pages/apps')).default,
+          Component: (await import('./pages/apps')).default,
         }),
       },
       {
         path: 'product_catalog',
         lazy: async () => ({
-          Component: (await import('@/components/coming-soon')).default,
+          Component: (await import('./components/coming-soon')).default,
         }),
       },
       {
         path: 'reports',
         lazy: async () => ({
-          Component: (await import('@/components/coming-soon')).default,
+          Component: (await import('./components/coming-soon')).default,
         }),
       },
       {
         path: 'checkout',
         lazy: async () => ({
-          Component: (await import('@/pages/extra-components')).default,
+          Component: (await import('./pages/extra-components')).default,
         }),
       },
       {
-        path: 'dev_tools',
+        path: 'settings',
         lazy: async () => ({
           Component: (await import('./pages/settings')).default,
         }),

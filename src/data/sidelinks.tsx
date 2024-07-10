@@ -9,7 +9,7 @@ import {
   IconFileBarcode,
   IconUsers,
   IconReportAnalytics,
-  IconDeviceIpadCog,
+  IconAdjustmentsAlt,
 } from '@tabler/icons-react'
 
 export interface NavLink {
@@ -33,49 +33,49 @@ export const sidelinks: SideLink[] = [
   {
     title: 'Transactions',
     label: '',
-    href: '/transactions',
+    href: '/dashboard/transactions',
     icon: <IconArrowsDownUp size={18} />,
   },
   {
     title: 'Invoices',
     label: '',
-    href: '/invoices',
+    href: '/dashboard/invoices',
     icon: <IconFileInvoice size={18} />,
   },
   {
     title: 'Customers',
     label: '',
-    href: '/customers',
+    href: '/dashboard/customers',
     icon: <IconUsers size={18} />,
   },
   {
     title: 'Product Catalog',
     label: '',
-    href: '/catalog',
+    href: '/dashboard/catalog',
     icon: <IconFileBarcode size={18} />,
     sub: [
       {
         title: 'Overview',
         label: '',
-        href: '/catalog/overview',
+        href: '/dashboard/catalog/overview',
         icon: <IconHexagonNumber1 size={18} />,
       },
       {
         title: 'Products',
         label: '',
-        href: '/catalog/products',
+        href: '/dashboard/catalog/products',
         icon: <IconHexagonNumber2 size={18} />,
       },
       {
         title: 'Discounts',
         label: '',
-        href: '/catalog/discounts',
+        href: '/dashboard/catalog/discounts',
         icon: <IconHexagonNumber3 size={18} />,
       },
       {
         title: 'Taxable Items',
         label: '',
-        href: '/catalog/taxable-items',
+        href: '/dashboard/catalog/taxable-items',
         icon: <IconHexagonNumber4 size={18} />,
       },
     ],
@@ -83,13 +83,13 @@ export const sidelinks: SideLink[] = [
   {
     title: 'Reports',
     label: '',
-    href: '/reports',
+    href: '/dashboard/reports',
     icon: <IconReportAnalytics size={18} />,
   },
   {
-    title: 'Dev Toosl',
+    title: 'Settings',
     label: '',
-    href: '/dev_tools',
-    icon: <IconDeviceIpadCog size={18} />,
+    href: '/dashboard/settings',
+    icon: <IconAdjustmentsAlt size={18} />,
   },
 ]
