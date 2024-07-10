@@ -71,24 +71,6 @@ const router = createBrowserRouter([
         }),
       },
       {
-        path: 'product_catalog',
-        lazy: async () => ({
-          Component: (await import('./components/coming-soon')).default,
-        }),
-      },
-      {
-        path: 'reports',
-        lazy: async () => ({
-          Component: (await import('./components/coming-soon')).default,
-        }),
-      },
-      {
-        path: 'checkout',
-        lazy: async () => ({
-          Component: (await import('./pages/extra-components')).default,
-        }),
-      },
-      {
         path: 'settings',
         lazy: async () => ({
           Component: (await import('./pages/settings')).default,

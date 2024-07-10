@@ -1,9 +1,9 @@
 import { Layout } from '@/components/custom/layout'
 
-import { Search } from '@/components/search'
 import ThemeSwitch from '@/components/theme-switch'
 import { UserNav } from '@/components/user-nav'
-import { GlobeDemo } from './components/glob-config'
+import { GlobeWrapper } from './components/globe-wrapper-container'
+import RealtimeDataCard from './components/realtime-data-card'
 
 export default function Apps() {
   return (
@@ -11,7 +11,11 @@ export default function Apps() {
       {/* ===== Top Heading ===== */}
       <Layout.Header>
         <div className='flex w-full items-center justify-between'>
-          <Search />
+        <div>
+          <h1 className='text-2xl font-bold tracking-tight'>
+           Real time transactions 
+          </h1>
+        </div>
           <div className='flex items-center space-x-4'>
             <ThemeSwitch />
             <UserNav />
@@ -20,14 +24,10 @@ export default function Apps() {
       </Layout.Header>
 
       {/* ===== Content ===== */}
-      <Layout.Body className='flex flex-col'>
-        <div>
-          <h1 className='text-2xl font-bold tracking-tight'>
-           Real time transaction 
-          </h1>
-        </div>
-        <GlobeDemo />
+      <Layout.Body className='lg:h-400 flex flex-col h-full'>
+        <GlobeWrapper />
       </Layout.Body>
+        <RealtimeDataCard />
     </Layout>
   )
 }

@@ -2,14 +2,8 @@ import {
   IconArrowsDownUp,
   IconLayoutDashboard,
   IconFileInvoice,
-  IconHexagonNumber1,
-  IconHexagonNumber2,
-  IconHexagonNumber3,
-  IconHexagonNumber4,
-  IconFileBarcode,
-  IconUsers,
-  IconReportAnalytics,
   IconAdjustmentsAlt,
+  IconMap2,
 } from '@tabler/icons-react'
 
 export interface NavLink {
@@ -46,45 +40,7 @@ export const sidelinks: SideLink[] = [
     title: 'Interactions',
     label: '',
     href: '/dashboard/interactions',
-    icon: <IconUsers size={18} />,
-  },
-  {
-    title: 'Product Catalog',
-    label: '',
-    href: '/dashboard/catalog',
-    icon: <IconFileBarcode size={18} />,
-    sub: [
-      {
-        title: 'Overview',
-        label: '',
-        href: '/dashboard/catalog/overview',
-        icon: <IconHexagonNumber1 size={18} />,
-      },
-      {
-        title: 'Products',
-        label: '',
-        href: '/dashboard/catalog/products',
-        icon: <IconHexagonNumber2 size={18} />,
-      },
-      {
-        title: 'Discounts',
-        label: '',
-        href: '/dashboard/catalog/discounts',
-        icon: <IconHexagonNumber3 size={18} />,
-      },
-      {
-        title: 'Taxable Items',
-        label: '',
-        href: '/dashboard/catalog/taxable-items',
-        icon: <IconHexagonNumber4 size={18} />,
-      },
-    ],
-  },
-  {
-    title: 'Reports',
-    label: '',
-    href: '/dashboard/reports',
-    icon: <IconReportAnalytics size={18} />,
+    icon: <IconMap2 size={18} />,
   },
   {
     title: 'Settings',

@@ -26,27 +26,19 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-import { fetchInvoices, fetchTransactions } from '@/lib/utils';
+import { fetchInvoices } from '@/lib/utils';
 import { DataTablePagination } from '@/pages/transactions/components/data-table-pagination';
 import { InvoiceResponse } from '@/pages/transactions/data/schema';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
-  data: TData[];
-  pagination: {
-    pageIndex: number;
-    pageSize: number;
-  };
-  setPagination: React.Dispatch<React.SetStateAction<{
-    pageIndex: number;
-    pageSize: number;
-  }>>;
-  loading: boolean,
+  search?: string;
 }
 
 
 export function DataTable<TData, TValue>({
   columns,
+  search,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
@@ -63,7 +55,7 @@ export function DataTable<TData, TValue>({
     const fetchData = async () => {
       try {
 
-        const response: InvoiceResponse = await fetchInvoices(pagination);
+        const response: InvoiceResponse = await fetchInvoices(pagination, search);
         return response;
       } catch (error) {
 
@@ -73,7 +65,7 @@ export function DataTable<TData, TValue>({
     }
   
   const dataQuery = useQuery({
-    queryKey: ['data', pagination],
+    queryKey: ['data', pagination, search],
     queryFn: () => fetchData(),
     placeholderData: keepPreviousData,
   })

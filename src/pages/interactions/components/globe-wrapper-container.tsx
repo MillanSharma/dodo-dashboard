@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { World } from "./globe";
 
-export function GlobeDemo() {
+export function GlobeWrapper() {
   const globeConfig = {
     pointSize: 4,
     globeColor: "#062056",
