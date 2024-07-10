@@ -47,7 +47,9 @@ export const columns: ColumnDef<TransactionSchema>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='User' />
     ),
-    cell: ({ row }) => <div className='w-[200px] truncate'>{row.getValue('user_name')}</div>,
+    cell: ({ row }) => (
+      <div className='w-[200px] truncate'>{row.getValue('user_name')}</div>
+    ),
     enableSorting: false,
     enableHiding: false,
   },
@@ -56,14 +58,16 @@ export const columns: ColumnDef<TransactionSchema>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='Amount' />
     ),
-    cell: ({ row }) => <div className='w-[80px]'>{row.getValue('amount')}</div>, 
+    cell: ({ row }) => <div className='w-[80px]'>{row.getValue('amount')}</div>,
   },
   {
     accessorKey: 'currency',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='Currency' />
     ),
-    cell: ({ row }) => <div className='w-[80px]'>{row.getValue('currency')}</div>,
+    cell: ({ row }) => (
+      <div className='w-[80px]'>{row.getValue('currency')}</div>
+    ),
     enableSorting: false,
     enableHiding: false,
   },

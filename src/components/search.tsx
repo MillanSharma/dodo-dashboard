@@ -1,8 +1,8 @@
 import { Input } from '@/components/ui/input'
 
 interface SearchProps {
-  handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  searchValue: string;
+  handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void
+  searchValue: string
 }
 
 export function Search({ handleSearch, searchValue }: SearchProps) {

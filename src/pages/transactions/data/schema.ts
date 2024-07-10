@@ -68,12 +68,12 @@ interface DataTableStatusProps {
 }
 
 interface RealTimeTransaction {
-  name: string;
-  avatarName: string;
-  id: number;
-  dateTime: string;
-  amount: string;
-  status: 'Receive' | 'Transfer';
+  name: string
+  avatarName: string
+  id: number
+  dateTime: string
+  amount: string
+  status: 'Receive' | 'Transfer'
 }
 
 export type {

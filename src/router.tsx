@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       return { Component: AppShell.default }
     },
     errorElement: <GeneralError />,
-      children: [
+    children: [
       {
         index: true,
         lazy: async () => ({

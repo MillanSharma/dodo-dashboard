@@ -11,11 +11,11 @@ export default function Apps() {
       {/* ===== Top Heading ===== */}
       <Layout.Header>
         <div className='flex w-full items-center justify-between'>
-        <div>
-          <h1 className='text-2xl font-bold tracking-tight'>
-           Real time transactions 
-          </h1>
-        </div>
+          <div>
+            <h1 className='text-2xl font-bold tracking-tight'>
+              Real time transactions
+            </h1>
+          </div>
           <div className='flex items-center space-x-4'>
             <ThemeSwitch />
             <UserNav />
@@ -24,10 +24,10 @@ export default function Apps() {
       </Layout.Header>
 
       {/* ===== Content ===== */}
-      <Layout.Body className='lg:h-400 flex flex-col h-full'>
+      <Layout.Body className='lg:h-400 flex h-full flex-col'>
         <GlobeWrapper />
       </Layout.Body>
-        <RealtimeDataCard />
+      <RealtimeDataCard />
     </Layout>
   )
 }

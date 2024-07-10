@@ -15,7 +15,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 
-import { useQuery, keepPreviousData } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query'
 
 import {
   Table,
@@ -27,14 +27,13 @@ import {
 } from '@/components/ui/table'
 
 import { DataTablePagination } from '../components/data-table-pagination'
-import {  TransactionsResponse } from '../data/schema';
-import { fetchTransactions } from '@/lib/utils';
+import { TransactionsResponse } from '../data/schema'
+import { fetchTransactions } from '@/lib/utils'
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  search: string,
+  columns: ColumnDef<TData, TValue>[]
+  search: string
 }
-
 
 export function DataTable<TData, TValue>({
   columns,
@@ -52,18 +51,19 @@ export function DataTable<TData, TValue>({
     pageSize: 10,
   })
 
-    const fetchData = async () => {
-      try {
-
-        const response: TransactionsResponse = await fetchTransactions(pagination, search);
-        return response;
-      } catch (error) {
-
-        console.error('Error fetching data:', error);
-      } finally {
-      }
+  const fetchData = async () => {
+    try {
+      const response: TransactionsResponse = await fetchTransactions(
+        pagination,
+        search
+      )
+      return response
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    } finally {
     }
-  
+  }
+
   const dataQuery = useQuery({
     queryKey: ['data', pagination, search],
     queryFn: () => fetchData(),
@@ -98,7 +98,6 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
-    
   })
 
   return (

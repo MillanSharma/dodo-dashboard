@@ -37,49 +37,58 @@ export const columns: ColumnDef<invoiceSchema>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='Invoice Id' />
     ),
-    cell: ({ row }) => <DataTableInvoice row={row.original} />,    enableSorting: false,
+    cell: ({ row }) => <DataTableInvoice row={row.original} />,
+    enableSorting: false,
     enableHiding: false,
-},
-{
+  },
+  {
     accessorKey: 'customer_name',
     header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Name' />
+      <DataTableColumnHeader column={column} title='Name' />
     ),
-    cell: ({ row }) => <div className='w-[200px] truncate'>{row.getValue('customer_name')}</div>,
+    cell: ({ row }) => (
+      <div className='w-[200px] truncate'>{row.getValue('customer_name')}</div>
+    ),
     enableSorting: false,
     enableHiding: false,
-},
-{
+  },
+  {
     accessorKey: 'amount',
     header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Amount' />
+      <DataTableColumnHeader column={column} title='Amount' />
     ),
-    cell: ({ row }) => <div className='w-[80px]'>{row.getValue('amount')}</div>, 
-},
-{
+    cell: ({ row }) => <div className='w-[80px]'>{row.getValue('amount')}</div>,
+  },
+  {
     accessorKey: 'currency',
     header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Currency' />
+      <DataTableColumnHeader column={column} title='Currency' />
     ),
-    cell: ({ row }) => <div className='w-[80px]'>{row.getValue('currency')}</div>,
+    cell: ({ row }) => (
+      <div className='w-[80px]'>{row.getValue('currency')}</div>
+    ),
     enableSorting: false,
     enableHiding: false,
-},
-{
+  },
+  {
     accessorKey: 'due_date',
     header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Due' />
+      <DataTableColumnHeader column={column} title='Due' />
     ),
-    cell: ({ row }) => <div className='w-[200px] truncate'>{formattedDate(row.getValue('due_date'))}</div>,
+    cell: ({ row }) => (
+      <div className='w-[200px] truncate'>
+        {formattedDate(row.getValue('due_date'))}
+      </div>
+    ),
     enableSorting: false,
     enableHiding: false,
-},
-{
+  },
+  {
     accessorKey: 'status',
     header: ({ column }) => (
-        <DataTableColumnHeader column={column} title='Status' />
+      <DataTableColumnHeader column={column} title='Status' />
     ),
-    cell: ({ row }) => <DataTableStatus row={row.original} />,  
+    cell: ({ row }) => <DataTableStatus row={row.original} />,
     enableSorting: false,
     enableHiding: false,
   },

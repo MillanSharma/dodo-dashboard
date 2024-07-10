@@ -1,4 +1,3 @@
-
 const slugData = [
   {
     title: 'Transactions reports updated and refund initiated',
@@ -32,7 +31,7 @@ const slugData = [
 
 export function DashboardActivities() {
   return (
-    <div className='flex flex-col w-100 items-center gap-2'>
+    <div className='w-100 flex flex-col items-center gap-2'>
       {slugData.map((item) => (
         <div className='w-full' key={item.time}>
           <p className='text-md'>{item.title}</p>

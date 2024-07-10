@@ -1,21 +1,21 @@
-import { motion } from "framer-motion";
-import { World } from "./globe";
+import { motion } from 'framer-motion'
+import { World } from './globe'
 
 export function GlobeWrapper() {
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#062056",
+    globeColor: '#062056',
     showAtmosphere: true,
-    atmosphereColor: "#FFFFFF",
+    atmosphereColor: '#FFFFFF',
     atmosphereAltitude: 0.1,
-    emissive: "#062056",
+    emissive: '#062056',
     emissiveIntensity: 0.1,
     shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
-    ambientLight: "#38bdf8",
-    directionalLeftLight: "#ffffff",
-    directionalTopLight: "#ffffff",
-    pointLight: "#ffffff",
+    polygonColor: 'rgba(255,255,255,0.7)',
+    ambientLight: '#38bdf8',
+    directionalLeftLight: '#ffffff',
+    directionalTopLight: '#ffffff',
+    pointLight: '#ffffff',
     arcTime: 2000,
     arcLength: 0.9,
     rings: 1,
@@ -23,8 +23,8 @@ export function GlobeWrapper() {
     initialPosition: { lat: 22.3193, lng: 114.1694 },
     autoRotate: true,
     autoRotateSpeed: 0.5,
-  };
-  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+  }
+  const colors = ['#06b6d4', '#3b82f6', '#6366f1']
   const sampleArcs = [
     {
       order: 1,
@@ -386,34 +386,33 @@ export function GlobeWrapper() {
       arcAlt: 0.3,
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
-  ];
+  ]
 
   return (
-          <>
-    <div className="flex flex-row items-center justify-center py-2 h-screen md:h-auto dark:transparent relative w-full">
-      <div className="max-w-7xl filter sepia mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4 dark:sepia-0 ">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className="div"
-        >
-        </motion.div>
-        <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent transparent z-40" />
-        <div className="absolute w-full h-72 md:h-full z-10 filter sepia-1">
-          <World data={sampleArcs} globeConfig={globeConfig} />
+    <>
+      <div className='sm:h-450 dark:transparent relative flex h-screen w-full flex-row items-center justify-center py-2 md:h-auto'>
+        <div className='relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4 sepia filter dark:sepia-0 md:h-[40rem] '>
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            className='div'
+          ></motion.div>
+          <div className='transparent pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none bg-gradient-to-b from-transparent' />
+          <div className='sepia-1 absolute z-10 h-72 w-full filter md:h-full'>
+            <World data={sampleArcs} globeConfig={globeConfig} />
+          </div>
         </div>
       </div>
-    </div>
       {/* <p className="text-sm text-end">simulated data*</p>/ */}
-      </>
-  );
+    </>
+  )
 }

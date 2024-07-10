@@ -62,7 +62,7 @@
   -webkit-animation-duration: 1s;
   -webkit-animation-timing-function: ease-in-out;
 }
-.slideInUp{
+.slideInUp {
   animation-name: slideInUp;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;

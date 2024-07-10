@@ -15,7 +15,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 
-import { useQuery, keepPreviousData } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query'
 
 import {
   Table,
@@ -26,15 +26,14 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-import { fetchInvoices } from '@/lib/utils';
-import { DataTablePagination } from '@/pages/transactions/components/data-table-pagination';
-import { InvoiceResponse } from '@/pages/transactions/data/schema';
+import { fetchInvoices } from '@/lib/utils'
+import { DataTablePagination } from '@/pages/transactions/components/data-table-pagination'
+import { InvoiceResponse } from '@/pages/transactions/data/schema'
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  search?: string;
+  columns: ColumnDef<TData, TValue>[]
+  search?: string
 }
-
 
 export function DataTable<TData, TValue>({
   columns,
@@ -52,18 +51,16 @@ export function DataTable<TData, TValue>({
     pageSize: 10,
   })
 
-    const fetchData = async () => {
-      try {
-
-        const response: InvoiceResponse = await fetchInvoices(pagination, search);
-        return response;
-      } catch (error) {
-
-        console.error('Error fetching data:', error);
-      } finally {
-      }
+  const fetchData = async () => {
+    try {
+      const response: InvoiceResponse = await fetchInvoices(pagination, search)
+      return response
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    } finally {
     }
-  
+  }
+
   const dataQuery = useQuery({
     queryKey: ['data', pagination, search],
     queryFn: () => fetchData(),
@@ -97,7 +94,6 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
-    
   })
 
   return (

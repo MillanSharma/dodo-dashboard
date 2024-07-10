@@ -7,17 +7,14 @@ import { columns } from './components/columns'
 import useDebounce from '@/hooks/debounce-search'
 import { useState } from 'react'
 export default function Transactions() {
-  
-  
-  const [debouncedSearch, setDebouncedSearch] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('')
   const { searchValue, setSearchValue } = useDebounce((value: string) => {
-    setDebouncedSearch(value);
-  }, 600);
+    setDebouncedSearch(value)
+  }, 600)
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
-  };
-
+    setSearchValue(event.target.value)
+  }
 
   return (
     <Layout>
@@ -37,10 +34,7 @@ export default function Transactions() {
           </div>
         </div>
         <div className='-mx-4 flex-1 overflow-auto px-4 py-1 lg:flex-row lg:space-x-12 lg:space-y-0'>
-          <DataTable
-            columns={columns}
-            search={debouncedSearch}
-          />
+          <DataTable columns={columns} search={debouncedSearch} />
         </div>
       </Layout.Body>
     </Layout>

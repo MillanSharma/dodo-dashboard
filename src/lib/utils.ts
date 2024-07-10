@@ -3,7 +3,10 @@ import { twMerge } from 'tailwind-merge'
 import { format } from 'date-fns'
 import { faker } from '@faker-js/faker'
 import { PaginationState } from '@tanstack/react-table'
-import { InvoiceResponse, RealTimeTransaction } from '@/pages/transactions/data/schema'
+import {
+  InvoiceResponse,
+  RealTimeTransaction,
+} from '@/pages/transactions/data/schema'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -128,7 +131,10 @@ export const generateRevenue = (years: number): ChartData[] => {
 
 export function generateRealTimeTransaction(): RealTimeTransaction {
   const name = faker.internet.userName()
-  const status: 'Receive' | 'Transfer' = faker.helpers.arrayElement(['Receive', 'Transfer']);
+  const status: 'Receive' | 'Transfer' = faker.helpers.arrayElement([
+    'Receive',
+    'Transfer',
+  ])
 
   const initials = name
     .split(' ')
@@ -143,5 +149,5 @@ export function generateRealTimeTransaction(): RealTimeTransaction {
     amount: `$${faker.finance.amount()} USD`,
     status: status,
   }
-  return data;
+  return data
 }
