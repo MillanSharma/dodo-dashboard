@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { World } from './globe'
+import RealtimeDataCard from './realtime-data-card'
 
 export function GlobeWrapper() {
   const globeConfig = {
@@ -413,6 +414,7 @@ export function GlobeWrapper() {
         </div>
       </div>
       {/* <p className="text-sm text-end">simulated data*</p>/ */}
+      <RealtimeDataCard />
     </>
   )
 }

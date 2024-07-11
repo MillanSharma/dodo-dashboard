@@ -3,11 +3,10 @@ import { Layout } from '@/components/custom/layout'
 import ThemeSwitch from '@/components/theme-switch'
 import { UserNav } from '@/components/user-nav'
 import { GlobeWrapper } from './components/globe-wrapper-container'
-import RealtimeDataCard from './components/realtime-data-card'
 
 export default function Apps() {
   return (
-    <div>
+    <>
       <Layout fixed>
         {/* ===== Top Heading ===== */}
         <Layout.Header>
@@ -29,7 +28,6 @@ export default function Apps() {
           <GlobeWrapper />
         </Layout.Body>
       </Layout>
-      <RealtimeDataCard />
-    </div>
+    </>
   )
 }

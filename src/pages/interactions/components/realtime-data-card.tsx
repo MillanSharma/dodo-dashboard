@@ -28,7 +28,7 @@ const RealtimeDataCard: React.FC = () => {
   }, [])
 
   return (
-    <div className='fixed inset-0 flex items-end justify-end'>
+    <div className='inset-0 flex items-end justify-end'>
       <Card className='max-w-800px h-230 max-h-230px w-full overflow-auto border-none bg-transparent p-4 shadow-none md:w-3/4 lg:w-1/2'>
         {data.map((item, index) => (
           <div

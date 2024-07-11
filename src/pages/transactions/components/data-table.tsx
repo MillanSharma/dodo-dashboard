@@ -29,6 +29,7 @@ import {
 import { DataTablePagination } from '../components/data-table-pagination'
 import { TransactionsResponse } from '../data/schema'
 import { fetchTransactions } from '@/lib/utils'
+import { Skeleton } from '@/components/ui/skeleton'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -122,7 +123,16 @@ export function DataTable<TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
+ 
+          {dataQuery.isLoading || dataQuery.isFetching ? (
+              Array.from({ length: 10 }, () => (
+                <TableRow>
+                  <TableCell colSpan={columns.length} className='h-12'>
+                    <Skeleton className='h-full w-full' />
+                  </TableCell>
+                </TableRow>
+              ))
+            ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
@@ -148,7 +158,7 @@ export function DataTable<TData, TValue>({
                   No results.
                 </TableCell>
               </TableRow>
-            )}
+            )}   
           </TableBody>
         </Table>
       </div>

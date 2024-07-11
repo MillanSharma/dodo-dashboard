@@ -29,6 +29,7 @@ import {
 import { fetchInvoices } from '@/lib/utils'
 import { DataTablePagination } from '@/pages/transactions/components/data-table-pagination'
 import { InvoiceResponse } from '@/pages/transactions/data/schema'
+import { Skeleton } from '@/components/ui/skeleton'
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -65,6 +66,7 @@ export function DataTable<TData>({
     queryKey: ['data', pagination, search],
     queryFn: () => fetchData(),
     placeholderData: keepPreviousData,
+    staleTime: Infinity,
   })
 
   const defaultData: TData[] = []
@@ -97,7 +99,7 @@ export function DataTable<TData>({
   })
 
   return (
-    <div className='space-y-4'>
+    <div className='space-y-4 w-full'>
       <div className='rounded-md border'>
         <Table>
           <TableHeader>
@@ -118,8 +120,17 @@ export function DataTable<TData>({
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
+          <TableBody className='w-full'>
+
+          {dataQuery.isLoading || dataQuery.isFetching ? (
+              Array.from({ length: 10 }, () => (
+                <TableRow>
+                  <TableCell colSpan={columns.length} className='h-12'>
+                    <Skeleton className='h-full w-full' />
+                  </TableCell>
+                </TableRow>
+              ))
+            ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}

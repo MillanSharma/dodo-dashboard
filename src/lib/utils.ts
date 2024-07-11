@@ -39,7 +39,6 @@ export async function fetchInvoices(
   search: string = ''
 ): Promise<InvoiceResponse> {
   const { pageSize, pageIndex } = pagination
-  console.log(process.env)
   const response = await fetch(
     `${API_BASE_URL}/invoices?page=${pageIndex}&limit=${pageSize}&search=${search}`
   )
