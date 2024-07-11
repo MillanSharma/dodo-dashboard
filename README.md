@@ -1,7 +1,5 @@
 # Dodo Payments Dashboard
 
-![Dodo Payments Dashboard Preview](dashboard-preview.png)
-
 ## Overview
 
 Dodo Payments Dashboard is a web application designed to provide insights and analytics for transaction data, featuring interactive graphs and a responsive user interface.
@@ -55,5 +53,8 @@ Dodo Payments Dashboard is a web application designed to provide insights and an
    ```sh
    pnpm dev
    ```
- 
+
+> [!NOTE]  
+> NB: Please be patient with the api response for transaction and invoice. The service is hosted on a free platform and takes sometime to spin the server after inactivity .
+
 #### App URL : https://dodo-dashboard-gold.vercel.app
