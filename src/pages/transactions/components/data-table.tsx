@@ -69,6 +69,7 @@ export function DataTable<TData, TValue>({
     queryKey: ['data', pagination, search],
     queryFn: () => fetchData(),
     placeholderData: keepPreviousData,
+    staleTime: Infinity,
   })
 
   const defaultData = React.useMemo(() => [], [])
