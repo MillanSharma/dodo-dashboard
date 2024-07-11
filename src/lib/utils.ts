@@ -13,13 +13,15 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+const API_BASE_URL = import.meta.env.VITE_BASE_URL
+
 export async function fetchTransactions(
   pagination: PaginationState,
   search: string = ''
 ): Promise<TransactionsResponse> {
   const { pageSize, pageIndex } = pagination
   const response = await fetch(
-    `${process.env.API_BASE_URL}/transactions?page=${pageIndex}&limit=${pageSize}&search=${search}`
+    `${API_BASE_URL}/transactions?page=${pageIndex}&limit=${pageSize}&search=${search}`
   )
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`)
@@ -37,8 +39,9 @@ export async function fetchInvoices(
   search: string = ''
 ): Promise<InvoiceResponse> {
   const { pageSize, pageIndex } = pagination
+  console.log(process.env)
   const response = await fetch(
-    `${process.env.API_BASE_URL}/invoices?page=${pageIndex}&limit=${pageSize}&search=${search}`
+    `${API_BASE_URL}/invoices?page=${pageIndex}&limit=${pageSize}&search=${search}`
   )
   if (!response.ok) {
     throw new Error(`HTTP error! status: ${response.status}`)
