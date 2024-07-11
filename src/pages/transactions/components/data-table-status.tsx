@@ -7,7 +7,7 @@ interface DataTableStatusProps {
     amount: string
     currency: string
     payment: string
-    status: PaymentStatus
+    status: string
   }
 }
 
@@ -17,7 +17,15 @@ const paymentStatus: Record<PaymentStatus, JSX.Element> = {
   pending: <p className='text-yellow-400'>Pending</p>,
 }
 
+const isPaymentStatus = (status: string): status is PaymentStatus => {
+  return status === 'pending' || status === 'failed' || status === 'completed'
+}
+
 const DataTableStatus: React.FC<DataTableStatusProps> = ({ row }) => {
+  if (!isPaymentStatus(row.status)) {
+    return <div>Invalid status</div>
+  }
+
   const statusInfo = paymentStatus[row.status]
 
   return <div className='flex items-center'>{statusInfo}</div>

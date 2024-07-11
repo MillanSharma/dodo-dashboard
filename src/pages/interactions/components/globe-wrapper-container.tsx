@@ -391,7 +391,7 @@ export function GlobeWrapper() {
   return (
     <>
       <div className='sm:h-450 dark:transparent relative flex h-screen w-full flex-row items-center justify-center py-2 md:h-auto'>
-        <div className='relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4 sepia filter dark:sepia-0 md:h-[40rem] '>
+        <div className='relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4 sepia filter dark:sepia-0 md:h-[30rem] lg:h-[35rem] '>
           <motion.div
             initial={{
               opacity: 0,

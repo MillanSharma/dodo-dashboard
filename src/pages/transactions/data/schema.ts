@@ -17,9 +17,10 @@ export const invoiceSchema = z.object({
   amount: z.string(),
   currency: z.string(),
   due_date: z.date(),
+  status: z.string(),
 })
 
-export type invoiceSchema = z.infer<typeof invoiceSchema>
+export type InvoiceSchema = z.infer<typeof invoiceSchema>
 
 interface Transaction {
   _id: string

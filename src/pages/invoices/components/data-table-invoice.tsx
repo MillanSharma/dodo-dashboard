@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { IconCheck } from '@tabler/icons-react'
 import { IconCopy } from '@tabler/icons-react'
-import { invoiceSchema } from '@/pages/transactions/data/schema'
+import { InvoiceSchema } from '@/pages/transactions/data/schema'
 
 interface DataTableInvoice {
-  row: invoiceSchema
+  row: InvoiceSchema
 }
 
 const DataTableInvoice = ({ row }: DataTableInvoice) => {

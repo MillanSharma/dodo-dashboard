@@ -35,10 +35,10 @@ interface DataTableProps<TData, TValue> {
   search?: string
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData>({
   columns,
   search,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData, any>) {
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({})
@@ -67,10 +67,10 @@ export function DataTable<TData, TValue>({
     placeholderData: keepPreviousData,
   })
 
-  const defaultData = React.useMemo(() => [], [])
+  const defaultData: TData[] = []
 
   const table = useReactTable({
-    data: dataQuery?.data?.rows || defaultData,
+    data: (dataQuery?.data?.rows as any) || defaultData,
     rowCount: dataQuery?.data?.rowCount,
     pageCount: dataQuery?.data?.pageCount,
     columns,

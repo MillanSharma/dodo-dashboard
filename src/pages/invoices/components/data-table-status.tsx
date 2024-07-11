@@ -2,12 +2,12 @@ type PaymentStatus = 'pending' | 'past_due'
 
 interface DataTableStatusProps {
   row: {
-    transaction_id: string
     user_name: string
     amount: string
     currency: string
-    payment: string
-    status: PaymentStatus
+    invoice_id: string
+    due_date: Date
+    status: string
   }
 }
 
@@ -16,7 +16,15 @@ const paymentStatus: Record<PaymentStatus, JSX.Element> = {
   pending: <p className='text-yellow-400'>Pending</p>,
 }
 
+const isPaymentStatus = (status: string): status is PaymentStatus => {
+  return status === 'pending' || status === 'past_due'
+}
+
 const DataTableStatus: React.FC<DataTableStatusProps> = ({ row }) => {
+  if (!isPaymentStatus(row.status)) {
+    return <div>Invalid status</div>
+  }
+
   const statusInfo = paymentStatus[row.status]
 
   return <div className='flex items-center'>{statusInfo}</div>

@@ -71,10 +71,9 @@ export function DataTable<TData, TValue>({
   })
 
   const defaultData = React.useMemo(() => [], [])
-  console.log('data ', dataQuery?.data?.rows)
 
   const table = useReactTable({
-    data: dataQuery?.data?.rows || defaultData,
+    data: (dataQuery?.data?.rows as any) || defaultData,
     rowCount: dataQuery?.data?.rowCount,
     pageCount: dataQuery?.data?.pageCount,
     columns,

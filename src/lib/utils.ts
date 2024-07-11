@@ -6,6 +6,7 @@ import { PaginationState } from '@tanstack/react-table'
 import {
   InvoiceResponse,
   RealTimeTransaction,
+  TransactionsResponse,
 } from '@/pages/transactions/data/schema'
 
 export function cn(...inputs: ClassValue[]) {
@@ -15,7 +16,7 @@ export function cn(...inputs: ClassValue[]) {
 export async function fetchTransactions(
   pagination: PaginationState,
   search: string = ''
-): Promise<InvoiceResponse> {
+): Promise<TransactionsResponse> {
   const { pageSize, pageIndex } = pagination
   const response = await fetch(
     `${process.env.API_BASE_URL}/transactions?page=${pageIndex}&limit=${pageSize}&search=${search}`

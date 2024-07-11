@@ -1,13 +1,13 @@
 import { ColumnDef } from '@tanstack/react-table'
 
 import { Checkbox } from '@/components/ui/checkbox'
-import { invoiceSchema } from '@/pages/transactions/data/schema'
+import { InvoiceSchema } from '@/pages/transactions/data/schema'
 import { DataTableColumnHeader } from '@/pages/transactions/components/data-table-column-header'
 import DataTableInvoice from './data-table-invoice'
 import { formattedDate } from '@/lib/utils'
 import DataTableStatus from './data-table-status'
 
-export const columns: ColumnDef<invoiceSchema>[] = [
+export const columns: ColumnDef<InvoiceSchema>[] = [
   {
     id: 'select',
     header: ({ table }) => (
