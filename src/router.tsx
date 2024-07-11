@@ -1,43 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, redirect } from 'react-router-dom'
 import GeneralError from './pages/errors/general-error'
 import NotFoundError from './pages/errors/not-found-error'
 import MaintenanceError from './pages/errors/maintenance-error'
 import UnauthorisedError from './pages/errors/unauthorised-error.tsx'
 
 const router = createBrowserRouter([
-  // Auth routes
-  // {
-  //   path: '/sign-in',
-  //   lazy: async () => ({
-  //     Component: (await import('./pages/auth/sign-in')).default,
-  //   }),
-  // },
-  // {
-  //   path: '/sign-in-2',
-  //   lazy: async () => ({
-  //     Component: (await import('./pages/auth/sign-in-2')).default,
-  //   }),
-  // },
-  // {
-  //   path: '/sign-up',
-  //   lazy: async () => ({
-  //     Component: (await import('./pages/auth/sign-up')).default,
-  //   }),
-  // },
-  // {
-  //   path: '/forgot-password',
-  //   lazy: async () => ({
-  //     Component: (await import('./pages/auth/forgot-password')).default,
-  //   }),
-  // },
-  // {
-  //   path: '/otp',
-  //   lazy: async () => ({
-  //     Component: (await import('./pages/auth/otp')).default,
-  //   }),
-  // },
-
-  // Main routes
   {
     path: '/dashboard',
     lazy: async () => {
@@ -119,6 +86,10 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: '',
+    loader: () => redirect('/dashboard'),
   },
 
   // Error routes
