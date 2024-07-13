@@ -66,7 +66,7 @@ export function DataTable<TData, TValue>({
   }
 
   const dataQuery = useQuery({
-    queryKey: ['data', pagination, search],
+    queryKey: ['transaction_data', pagination, search],
     queryFn: () => fetchData(),
     placeholderData: keepPreviousData,
     staleTime: Infinity,

@@ -63,7 +63,7 @@ export function DataTable<TData>({
   }
 
   const dataQuery = useQuery({
-    queryKey: ['data', pagination, search],
+    queryKey: ['invoice_data', pagination, search],
     queryFn: () => fetchData(),
     placeholderData: keepPreviousData,
     staleTime: Infinity,
