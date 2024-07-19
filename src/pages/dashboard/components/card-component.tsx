@@ -27,7 +27,7 @@ export default function CardComponent(props: CardComponentProps) {
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent className='flex flex-row flex-wrap items-center justify-between w-full'>
+      <CardContent className='flex w-full flex-row flex-wrap items-center justify-between'>
         <div className='text-sm font-thin md:text-xl md:font-bold'>
           {quantity}
         </div>

@@ -58,10 +58,7 @@ export function BarGraph() {
             }
           />
           <YAxis dataKey='visitors' type='number' />
-          <ChartTooltip
-            cursor={false}
-            content={<ChartTooltipContent />}
-          />
+          <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
           <Bar
             dataKey='visitors'
             layout='horizontal'

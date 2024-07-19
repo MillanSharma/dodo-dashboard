@@ -60,8 +60,8 @@ export const sidelinks: SideLink[] = [
         title: 'Settings',
         label: '',
         href: '/dashboard/coming_soon_settings',
-      }
-    ]
+      },
+    ],
   },
   {
     title: 'Invoices',
@@ -83,8 +83,8 @@ export const sidelinks: SideLink[] = [
         title: 'Settings',
         label: '',
         href: '/dashboard/coming_soon_settings',
-      }
-    ]
+      },
+    ],
   },
   {
     title: 'Interactions',
@@ -106,8 +106,8 @@ export const sidelinks: SideLink[] = [
         title: 'Settings',
         label: '',
         href: '/dashboard/coming_soon_settings',
-      }
-    ]
+      },
+    ],
   },
   {
     title: 'Settings',

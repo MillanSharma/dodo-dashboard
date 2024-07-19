@@ -67,7 +67,7 @@ export default function Nav({
       )}
     >
       <TooltipProvider delayDuration={0}>
-        <nav className='grid gap-1 ml-4 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2 group-[[data-collapsed=true]]:ml-0'>
+        <nav className='ml-4 grid gap-1 group-[[data-collapsed=true]]:ml-0 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2'>
           {links.map(renderLink)}
         </nav>
       </TooltipProvider>
@@ -98,12 +98,18 @@ function NavLink({
           variant: checkActiveNav(href) ? 'secondary' : 'ghost',
           size: 'sm',
         }),
-        'h-6 justify-start text-wrap rounded-md pr-6 pl-0',
+        'h-6 justify-start text-wrap rounded-md pl-0 pr-6',
         subLink && 'h-6 w-full px-2'
       )}
       aria-current={checkActiveNav(href) ? 'page' : undefined}
     >
-      <div className={checkActiveNav(href) ? 'h-4 w-1 border-l-4 border-l-black rounded-md mr-6' : 'h-4 w-1 rounded-md border-l-4 border-l-transparent mr-6'}></div>
+      <div
+        className={
+          checkActiveNav(href)
+            ? 'mr-6 h-4 w-1 rounded-md border-l-4 border-l-black'
+            : 'mr-6 h-4 w-1 rounded-md border-l-4 border-l-transparent'
+        }
+      ></div>
       <div className='mr-2'>{icon}</div>
       {title}
       {label && (
@@ -135,7 +141,7 @@ function NavLinkDropdown({ title, icon, label, sub, closeNav }: NavLinkProps) {
             'mr-1 transition-all group-data-[state="open"]:-rotate-180'
           )}
         >
-          <IconChevronDown stroke={1} size={18} color='lightgray'/>
+          <IconChevronDown stroke={1} size={18} color='lightgray' />
         </span>
         <div className='mr-2'>{icon}</div>
         {title}
@@ -228,7 +234,7 @@ function NavLinkIconDropdown({ title, icon, label, sub }: NavLinkProps) {
           <DropdownMenuItem key={`${title}-${href}`} asChild>
             <Link
               to={href}
-              className={`${checkActiveNav(href) ? 'bg-secondary rounded-md' : ''}`}
+              className={`${checkActiveNav(href) ? 'rounded-md bg-secondary' : ''}`}
             >
               {icon} <span className='ml-2 max-w-52 text-wrap'>{title}</span>
               {label && <span className='ml-auto text-xs'>{label}</span>}

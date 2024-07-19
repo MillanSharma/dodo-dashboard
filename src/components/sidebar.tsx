@@ -59,13 +59,13 @@ export default function Sidebar({
           className='z-50 flex justify-between px-4 py-3 shadow-sm md:px-4'
         >
           <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`}>
-          <img 
-            src='https://s3-alpha-sig.figma.com/img/25fd/dc28/ee996b0edb37a8f08e577c61dadbc58d?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fXwPvlD31rJHHGobGnp56VTRL9dx8SRozV5hYhQYqW7QxJSVgdtRACmW0VQ0A5dUZieHS2a8VE5eSUWlv3O~cqnW6moB~JGsc5aAdqB-DAsT4pARKajMDLCP5qWN-JA1X8E59nt0O5pItBXwhE~iKTzZGH~cXQWySgx9b1rLSOVObS9vyHkRvOtdgQPo7lPEoR-VJfj5D7gJHvD~6i6Mb3~wpH3yuagJ7pvbM9xQiBrNVqSN2Y4M7U6qaorZbxDYtMo6tOU8qLqa4wXOCoTGjsmKTot9CvoN6jOVJXroanUqEVFphCErMu2GVPDc5WWqY73m~ApbJEN9345LRubQyQ__'
-            alt='admin-profile-image'
-            height='30px'
-            width='30px'
-            className='rounded-full'
-          />
+            <img
+              src='https://s3-alpha-sig.figma.com/img/25fd/dc28/ee996b0edb37a8f08e577c61dadbc58d?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fXwPvlD31rJHHGobGnp56VTRL9dx8SRozV5hYhQYqW7QxJSVgdtRACmW0VQ0A5dUZieHS2a8VE5eSUWlv3O~cqnW6moB~JGsc5aAdqB-DAsT4pARKajMDLCP5qWN-JA1X8E59nt0O5pItBXwhE~iKTzZGH~cXQWySgx9b1rLSOVObS9vyHkRvOtdgQPo7lPEoR-VJfj5D7gJHvD~6i6Mb3~wpH3yuagJ7pvbM9xQiBrNVqSN2Y4M7U6qaorZbxDYtMo6tOU8qLqa4wXOCoTGjsmKTot9CvoN6jOVJXroanUqEVFphCErMu2GVPDc5WWqY73m~ApbJEN9345LRubQyQ__'
+              alt='admin-profile-image'
+              height='30px'
+              width='30px'
+              className='rounded-full'
+            />
             <div
               className={`flex flex-col justify-end truncate ${isCollapsed ? 'invisible w-0' : 'visible w-auto'}`}
             >

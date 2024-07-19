@@ -40,13 +40,15 @@ const router = createBrowserRouter([
       {
         path: 'coming_soon_highlight',
         lazy: async () => ({
-          Component: (await import('../src/components/coming-soon.tsx')).default,
+          Component: (await import('../src/components/coming-soon.tsx'))
+            .default,
         }),
       },
       {
         path: 'coming_soon_settings',
         lazy: async () => ({
-          Component: (await import('../src/components/coming-soon.tsx')).default,
+          Component: (await import('../src/components/coming-soon.tsx'))
+            .default,
         }),
       },
       {
