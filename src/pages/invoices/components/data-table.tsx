@@ -99,7 +99,7 @@ export function DataTable<TData>({
   })
 
   return (
-    <div className='space-y-4 w-full'>
+    <div className='w-full space-y-4'>
       <div className='rounded-md border'>
         <Table>
           <TableHeader>
@@ -121,8 +121,7 @@ export function DataTable<TData>({
             ))}
           </TableHeader>
           <TableBody className='w-full'>
-
-          {dataQuery.isLoading || dataQuery.isFetching ? (
+            {dataQuery.isLoading || dataQuery.isFetching ? (
               Array.from({ length: 10 }, () => (
                 <TableRow>
                   <TableCell colSpan={columns.length} className='h-12'>

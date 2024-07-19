@@ -137,6 +137,9 @@ importers:
       three-globe:
         specifier: ^2.31.1
         version: 2.31.1(three@0.166.1)
+      vaul:
+        specifier: ^0.9.1
+        version: 0.9.1(@types/react-dom@18.2.25)(@types/react@18.2.79)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -2778,6 +2781,12 @@ packages:
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
     hasBin: true
+
+  vaul@0.9.1:
+    resolution: {integrity: sha512-fAhd7i4RNMinx+WEm6pF3nOl78DFkAazcN04ElLPFF9BMCNGbY/kou8UMhIcicm0rJCNePJP0Yyza60gGOD0Jw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
 
   victory-vendor@36.8.2:
     resolution: {integrity: sha512-NfSQi7ISCdBbDpn3b6rg+8RpFZmWIM9mcks48BbogHE2F6h1XKdA34oiCKP5hP1OGvTotDRzsexiJKzrK4Exuw==}
@@ -5435,6 +5444,15 @@ snapshots:
   utility-types@3.11.0: {}
 
   uuid@9.0.1: {}
+
+  vaul@0.9.1(@types/react-dom@18.2.25)(@types/react@18.2.79)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      '@radix-ui/react-dialog': 1.0.5(@types/react-dom@18.2.25)(@types/react@18.2.79)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
 
   victory-vendor@36.8.2:
     dependencies:

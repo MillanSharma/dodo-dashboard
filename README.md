@@ -26,13 +26,15 @@ Dodo Payments Dashboard is a web application designed to provide insights and an
    ```bash
    git clone https://github.com/your-username/dodo_payments_dashboard.git
    cd dodo_payments_dashboard
-  ```
+   ```
+
+````
 
 2. Install dependencies:
 
-   ```sh
-   pnpm install
-   ```
+ ```sh
+ pnpm install
+````
 
 3. Set up the environment variables:
 

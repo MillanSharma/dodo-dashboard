@@ -124,8 +124,7 @@ export function DataTable<TData, TValue>({
             ))}
           </TableHeader>
           <TableBody>
- 
-          {dataQuery.isLoading || dataQuery.isFetching ? (
+            {dataQuery.isLoading || dataQuery.isFetching ? (
               Array.from({ length: 10 }, () => (
                 <TableRow>
                   <TableCell colSpan={columns.length} className='h-12'>
@@ -159,7 +158,7 @@ export function DataTable<TData, TValue>({
                   No results.
                 </TableCell>
               </TableRow>
-            )}   
+            )}
           </TableBody>
         </Table>
       </div>

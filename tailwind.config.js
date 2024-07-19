@@ -25,7 +25,9 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        background_drawer: "hsl(var(--background-drawer))",
         foreground: "hsl(var(--foreground))",
+        chart_background: "hsl(var(--chart-background))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -50,8 +52,12 @@ module.exports = {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
+        card_even: {
+          DEFAULT: "hsl(var(--card-even))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        card_odd: {
+          DEFAULT: "hsl(var(--card-odd))",
           foreground: "hsl(var(--card-foreground))",
         },
       },

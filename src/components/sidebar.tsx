@@ -27,6 +27,18 @@ export default function Sidebar({
     }
   }, [navOpened])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 786) {
+        setNavOpened(false)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   return (
     <aside
       className={cn(
@@ -47,40 +59,17 @@ export default function Sidebar({
           className='z-50 flex justify-between px-4 py-3 shadow-sm md:px-4'
         >
           <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`}>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 256 256'
-              className={`transition-all ${isCollapsed ? 'h-6 w-6' : 'h-8 w-8'}`}
-            >
-              <rect width='256' height='256' fill='none'></rect>
-              <line
-                x1='208'
-                y1='128'
-                x2='128'
-                y2='208'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='16'
-              ></line>
-              <line
-                x1='192'
-                y1='40'
-                x2='40'
-                y2='192'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='16'
-              ></line>
-              <span className='sr-only'>Website Name</span>
-            </svg>
+          <img 
+            src='https://s3-alpha-sig.figma.com/img/25fd/dc28/ee996b0edb37a8f08e577c61dadbc58d?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fXwPvlD31rJHHGobGnp56VTRL9dx8SRozV5hYhQYqW7QxJSVgdtRACmW0VQ0A5dUZieHS2a8VE5eSUWlv3O~cqnW6moB~JGsc5aAdqB-DAsT4pARKajMDLCP5qWN-JA1X8E59nt0O5pItBXwhE~iKTzZGH~cXQWySgx9b1rLSOVObS9vyHkRvOtdgQPo7lPEoR-VJfj5D7gJHvD~6i6Mb3~wpH3yuagJ7pvbM9xQiBrNVqSN2Y4M7U6qaorZbxDYtMo6tOU8qLqa4wXOCoTGjsmKTot9CvoN6jOVJXroanUqEVFphCErMu2GVPDc5WWqY73m~ApbJEN9345LRubQyQ__'
+            alt='admin-profile-image'
+            height='30px'
+            width='30px'
+            className='rounded-full'
+          />
             <div
               className={`flex flex-col justify-end truncate ${isCollapsed ? 'invisible w-0' : 'visible w-auto'}`}
             >
-              <span className='font-medium'>Dashboard</span>
+              <span className='font-medium'>Superstars AI</span>
             </div>
           </div>
 

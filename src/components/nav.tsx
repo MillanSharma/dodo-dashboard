@@ -67,7 +67,7 @@ export default function Nav({
       )}
     >
       <TooltipProvider delayDuration={0}>
-        <nav className='grid gap-1 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2'>
+        <nav className='grid gap-1 ml-4 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2 group-[[data-collapsed=true]]:ml-0'>
           {links.map(renderLink)}
         </nav>
       </TooltipProvider>
@@ -98,11 +98,12 @@ function NavLink({
           variant: checkActiveNav(href) ? 'secondary' : 'ghost',
           size: 'sm',
         }),
-        'h-12 justify-start text-wrap rounded-none px-6',
-        subLink && 'h-10 w-full border-l border-l-slate-500 px-2'
+        'h-6 justify-start text-wrap rounded-md pr-6 pl-0',
+        subLink && 'h-6 w-full px-2'
       )}
       aria-current={checkActiveNav(href) ? 'page' : undefined}
     >
+      <div className={checkActiveNav(href) ? 'h-4 w-1 border-l-4 border-l-black rounded-md mr-6' : 'h-4 w-1 rounded-md border-l-4 border-l-transparent mr-6'}></div>
       <div className='mr-2'>{icon}</div>
       {title}
       {label && (
@@ -126,9 +127,16 @@ function NavLinkDropdown({ title, icon, label, sub, closeNav }: NavLinkProps) {
       <CollapsibleTrigger
         className={cn(
           buttonVariants({ variant: 'ghost', size: 'sm' }),
-          'group h-12 w-full justify-start rounded-none px-6'
+          'group h-6 w-full justify-start rounded-md px-2'
         )}
       >
+        <span
+          className={cn(
+            'mr-1 transition-all group-data-[state="open"]:-rotate-180'
+          )}
+        >
+          <IconChevronDown stroke={1} size={18} color='lightgray'/>
+        </span>
         <div className='mr-2'>{icon}</div>
         {title}
         {label && (
@@ -136,13 +144,6 @@ function NavLinkDropdown({ title, icon, label, sub, closeNav }: NavLinkProps) {
             {label}
           </div>
         )}
-        <span
-          className={cn(
-            'ml-auto transition-all group-data-[state="open"]:-rotate-180'
-          )}
-        >
-          <IconChevronDown stroke={1} />
-        </span>
       </CollapsibleTrigger>
       <CollapsibleContent className='collapsibleDropdown' asChild>
         <ul>
@@ -169,7 +170,7 @@ function NavLinkIcon({ title, icon, label, href }: NavLinkProps) {
               variant: checkActiveNav(href) ? 'secondary' : 'ghost',
               size: 'icon',
             }),
-            'h-12 w-12'
+            'h-6 w-6'
           )}
         >
           {icon}
@@ -201,7 +202,7 @@ function NavLinkIconDropdown({ title, icon, label, sub }: NavLinkProps) {
             <Button
               variant={isChildActive ? 'secondary' : 'ghost'}
               size='icon'
-              className='h-12 w-12'
+              className='h-6 w-6'
             >
               {icon}
             </Button>
@@ -227,7 +228,7 @@ function NavLinkIconDropdown({ title, icon, label, sub }: NavLinkProps) {
           <DropdownMenuItem key={`${title}-${href}`} asChild>
             <Link
               to={href}
-              className={`${checkActiveNav(href) ? 'bg-secondary' : ''}`}
+              className={`${checkActiveNav(href) ? 'bg-secondary rounded-md' : ''}`}
             >
               {icon} <span className='ml-2 max-w-52 text-wrap'>{title}</span>
               {label && <span className='ml-auto text-xs'>{label}</span>}

@@ -4,7 +4,6 @@ import { generateRealTimeTransaction } from '@/lib/utils'
 import { RealTimeTransaction } from '@/pages/transactions/data/schema'
 import { Avatar } from '@/components/ui/avatar'
 import { AvatarFallback } from '@radix-ui/react-avatar'
-import '../transition.css'
 
 const RealtimeDataCard: React.FC = () => {
   const [data, setData] = useState<RealTimeTransaction[]>([])

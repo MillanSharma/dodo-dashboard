@@ -19,7 +19,7 @@ const DataTableInvoice = ({ row }: DataTableInvoice) => {
     <div className='flex items-center'>
       <div className='w-[80px] truncate'>{row.invoice_id}</div>
       <button
-        className='ml-2 rounded p-1 hover:bg-gray-800'
+        className='ml-2 rounded p-1 hover:bg-gray-300 dark:hover:bg-slate-600'
         onClick={copyToClipboard}
       >
         {copied ? <IconCheck size={12} /> : <IconCopy size={12} />}
